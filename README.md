@@ -1,2 +1,609 @@
 # Newsiti
-Testing
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Окоянное дитя | Ритуалы и услуги</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fefaf5;
+            color: #1e1a17;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* навигация */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(254, 250, 245, 0.94);
+            backdrop-filter: blur(14px);
+            z-index: 100;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: #1e1a17;
+            color: #fcd9b8;
+            width: 48px;
+            height: 48px;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: 800;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .logo-text h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #2b241f;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #7f6b5c;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2b241f;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #b45f2b;
+        }
+
+        .btn-outline {
+            border: 1.5px solid #2b241f;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            background: transparent;
+            transition: 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #2b241f;
+            color: #fefaf5 !important;
+            border-color: #2b241f;
+        }
+
+        /* hero */
+        .hero {
+            padding: 60px 0 40px;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: #f0e3d8;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #b45f2b;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #231f1c;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #4b3b30;
+            max-width: 500px;
+            margin-bottom: 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+        }
+
+        .stat-item {
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .stat-item span {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #7f6b5c;
+            display: block;
+        }
+
+        .hero-image {
+            flex: 0.8;
+            background: #e7dbcf;
+            border-radius: 48px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+        }
+
+        .hero-image i {
+            font-size: 130px;
+            color: #2b241f;
+            opacity: 0.9;
+        }
+
+        /* секция услуг */
+        .services {
+            padding: 80px 0;
+            background: #ffffff;
+            border-radius: 56px 56px 0 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h3 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: #6b5a4c;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: #fefaf5;
+            border-radius: 32px;
+            padding: 32px 24px;
+            transition: all 0.25s ease;
+            border: 1px solid #f0e3d8;
+            box-shadow: 0 6px 12px -8px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #e0cdbc;
+            box-shadow: 0 20px 28px -12px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            background: #2b241f;
+            width: 58px;
+            height: 58px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-icon i {
+            font-size: 28px;
+            color: #fcd9b8;
+        }
+
+        .service-card h4 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #4f3f32;
+            margin-bottom: 20px;
+        }
+
+        .price-tag {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #b45f2b;
+            margin-top: 12px;
+        }
+
+        .price-tag small {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #8f7a68;
+        }
+
+        .warning-note {
+            background: #fcf3ea;
+            border-left: 4px solid #b45f2b;
+            padding: 16px 24px;
+            border-radius: 28px;
+            margin-top: 48px;
+            font-size: 0.9rem;
+            color: #4b3b30;
+            text-align: center;
+        }
+
+        /* особенности */
+        .features {
+            padding: 60px 0;
+            background: #fefaf5;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            text-align: center;
+            max-width: 220px;
+        }
+
+        .feature-item i {
+            font-size: 36px;
+            background: #e7dbcf;
+            padding: 16px;
+            border-radius: 60px;
+            color: #2b241f;
+            margin-bottom: 16px;
+        }
+
+        /* контакт */
+        .contact {
+            background: #2b241f;
+            color: #fefaf5;
+            padding: 64px 0;
+            border-radius: 48px 48px 0 0;
+        }
+
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .contact-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .contact-text p {
+            opacity: 0.8;
+        }
+
+        .managers-list {
+            margin-top: 20px;
+            background: rgba(255,255,255,0.08);
+            padding: 18px 24px;
+            border-radius: 28px;
+            backdrop-filter: blur(4px);
+        }
+
+        .managers-list h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .manager-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .manager-tag {
+            background: rgba(252, 217, 184, 0.2);
+            backdrop-filter: blur(4px);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: monospace;
+            letter-spacing: 0.3px;
+            transition: 0.2s;
+            border: 1px solid rgba(252, 217, 184, 0.3);
+        }
+
+        .manager-tag i {
+            margin-right: 6px;
+            font-size: 0.8rem;
+        }
+
+        .manager-tag:hover {
+            background: #fcd9b8;
+            color: #2b241f;
+            transform: translateY(-2px);
+        }
+
+        .contact-btn {
+            background: #fcd9b8;
+            padding: 14px 36px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            color: #2b241f;
+            transition: 0.2s;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .contact-btn:hover {
+            background: #e7c29e;
+            transform: scale(0.97);
+        }
+
+        footer {
+            background: #1a1512;
+            color: #b7a28e;
+            text-align: center;
+            padding: 28px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 780px) {
+            .hero-text h2 {
+                font-size: 2.3rem;
+            }
+            .section-header h3 {
+                font-size: 1.8rem;
+            }
+            .nav-links {
+                gap: 18px;
+            }
+            .contact-flex {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-btn {
+                align-self: flex-start;
+            }
+            .manager-tag {
+                font-size: 0.8rem;
+                padding: 6px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">
+                <div class="logo-icon">ОД</div>
+                <div class="logo-text">
+                    <h1>Окоянное дитя</h1>
+                    <p>сила древнего рода</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#">Главная</a>
+                <a href="#services">Услуги</a>
+                <a href="#contact">Связь</a>
+                <a href="#" class="btn-outline">Личный кабинет</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container hero">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-badge">✦ наследие предков ✦</div>
+                    <h2>Тёмная сторона<br> света</h2>
+                    <p>Помощь в самых сложных вопросах: приворот, порча, защита и древние ритуалы. Работаем с тонкими материями с 2007 года.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">700+ <span>ритуалов</span></div>
+                        <div class="stat-item">14 лет <span>практики</span></div>
+                        <div class="stat-item">100% <span>конфиденциально</span></div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-eye" style="font-size: 48px; margin-left: 12px;"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h3>⚡ перечень услуг ⚡</h3>
+                    <p>Работаем чисто, без откатов. Каждый ритуал настраивается под ваш запрос.</p>
+                </div>
+                <div class="services-grid">
+                    <!-- 1. Приворот -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-heart-broken"></i>
+                        </div>
+                        <h4>Приворот</h4>
+                        <p>Любовная привязка на крови, церковный или рунный приворот. Сильное воздействие для воссоединения чувств. Результат от 7 до 21 дня.</p>
+                        <div class="price-tag">от 15 000 ₽ <small>/ под ключ</small></div>
+                    </div>
+                    <!-- 2. Порча -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-skull"></i>
+                        </div>
+                        <h4>Порча</h4>
+                        <p>Наведение порчи на врага, конкурента или обидчика. Кладбищенская, земляная, через подклад. Полная анонимность.</p>
+                        <div class="price-tag">от 12 000 ₽ <small>/ постановка</small></div>
+                    </div>
+                    <!-- 3. Венец безбрачия / чистка -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-feather-alt"></i>
+                        </div>
+                        <h4>Диагностика + чистка</h4>
+                        <p>Снятие порчи, венца безбрачия, родовых проклятий. Полная диагностика по фото, чистка воском или рунами.</p>
+                        <div class="price-tag">от 8 000 ₽ <small>/ сеанс</small></div>
+                    </div>
+                    <!-- 4. Защита & обереги -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Защита от магии</h4>
+                        <p>Зеркальная защита, кукольные стражи, закрытие каналов. Оберег на дом и бизнес.</p>
+                        <div class="price-tag">от 9 500 ₽</div>
+                    </div>
+                    <!-- 5. Отворот / рассорка -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h4>Отворот & рассорка</h4>
+                        <p>Разрушение отношений между людьми, остуда, возврат мужа/жены в семью через отворот соперницы.</p>
+                        <div class="price-tag">от 14 000 ₽</div>
+                    </div>
+                    <!-- 6. Денежный канал -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h4>Денежный канал</h4>
+                        <p>Открытие финансового потока, привлечение удачи в бизнес, снятие порчи на безденежье.</p>
+                        <div class="price-tag">от 10 000 ₽</div>
+                    </div>
+                </div>
+                <div class="warning-note">
+                    <i class="fas fa-crow" style="margin-right: 12px;"></i> 
+                    ⚠️ Важно: приворот и порча — ответственные ритуалы. Перед заказом обязательна бесплатная диагностика (5–10 минут). Результат зависит от вашей цели и сроков.
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h3>почему выбирают нас</h3>
+                    <p>Окоянное дитя — этичная работа без лишних обещаний</p>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-crown"></i>
+                        <h4>Родовая сила</h4>
+                        <p>Передача знаний через поколение</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-user-secret"></i>
+                        <h4>Анонимность</h4>
+                        <p>Никаких личных данных третьим лицам</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Гарантия отката</h4>
+                        <p>Ставлю защиту на каждый обряд</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact" id="contact">
+            <div class="container contact-flex">
+                <div class="contact-text">
+                    <h3>🌙 запись на консультацию</h3>
+                    <p>Telegram / WhatsApp — отвечаем в течение 2 часов. Пришлите фото и вопрос.</p>
+                    
+                    <!-- Блок с менеджерами и контактами -->
+                    <div class="managers-list">
+                        <h4><i class="fas fa-users"></i> Наши мастера и менеджеры:</h4>
+                        <div class="manager-tags">
+                            <a href="https://t.me/Zara_zzaww" target="_blank" style="text-decoration: none; color: inherit;" class="manager-tag">
+                                <i class="fab fa-telegram"></i> @Zara_zzaww
+                            </a>
+                            <a href="https://t.me/kinght11111" target="_blank" style="text-decoration: none; color: inherit;" class="manager-tag">
+                                <i class="fab fa-telegram"></i> @kinght11111
+                            </a>
+                            <a href="https://t.me/Yfcghuuuuuu" target="_blank" style="text-decoration: none; color: inherit;" class="manager-tag">
+                                <i class="fab fa-telegram"></i> @Yfcghuuuuuu
+                            </a>
+                        </div>
+                        <p style="font-size: 0.75rem; margin-top: 12px; opacity: 0.7;"><i class="fas fa-lock"></i> Любой из менеджеров проведёт диагностику и подберёт ритуал</p>
+                    </div>
+                    
+                    <p style="margin-top: 12px;"><i class="fab fa-whatsapp"></i> WhatsApp: +7 (999) 123-45-67</p>
+                </div>
+                <a href="#" class="contact-btn">Связаться сейчас</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Окоянное дитя — ритуальная практика. Все материалы представлены в ознакомительных целях. 18+</p>
+        </div>
+    </footer>
+</body>
+</html>
